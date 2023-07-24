@@ -1,20 +1,39 @@
-from SeparatedTopologies import make_septop as ms
-from SeparatedTopologies import boresch_restraints as br
-from SeparatedTopologies import combine_coordinates as ac
-from SeparatedTopologies import distance_solvent as ds
+'''
+Usage: python prep_SepTop_complex.py --datapath ./input --ligand_A_folder_name 'A' --ligand_B_folder_name 'B'
+'''
+
+import make_septop as ms
+import boresch_restraints as br
+import combine_coordinates as ac
+import distance_solvent as ds
 import os
 import parmed as pmd
+import argparse
 
 ##########################
 ###### input needed  #####
 ##########################
+parser = argparse.ArgumentParser(description='Deep DILI')
+parser.add_argument(
+        '--data_path', 
+        default='.',
+        type=str, help='Data directory')
+parser.add_argument(
+        '--ligand_A_folder_name', 
+        default='.',
+        type=str, help='ligand folders: name of this folder is considered the ligand name')
+parser.add_argument(
+        '--ligand_B_folder_name', 
+        default='.',
+        type=str, help='ligand folders: name of this folder is considered the ligand name')
+args = parser.parse_args()
 
 #path to data folder
-path = ''
+path = args.data_path
 
 #ligand folders: name of this folder is considered the ligand name
-ligand_A = ''
-ligand_B = ''
+ligand_A = args.ligand_A_folder_name
+ligand_B = args.ligand_B_folder_name
 
 #directories of ligand input files
 compound_A = '%s/%s'%(path, ligand_A)
