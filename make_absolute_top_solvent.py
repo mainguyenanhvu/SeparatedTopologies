@@ -1,6 +1,4 @@
-import parmed as pmd
-from SeparatedTopologies import ligand_files as lf
-from SeparatedTopologies import rot_bonds as rotbond
+import rot_bonds as rotbond
 import mdtraj as md
 import numpy as np
 
@@ -234,4 +232,3 @@ def restrain_rot_bonds(ligand, solvent,pdb,lig,folder):
     write_itp_restraints(dih_A, values_A, 0, 5, '%s/rot_bonds_on.itp' % folder)
 
     return
-
