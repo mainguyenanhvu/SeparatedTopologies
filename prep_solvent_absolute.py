@@ -1,4 +1,4 @@
-import solvent as so
+import make_absolute_top_solvent as so
 import argparse
 
 parser = argparse.ArgumentParser(description='Deep DILI')
